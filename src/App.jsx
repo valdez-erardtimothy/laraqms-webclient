@@ -1,10 +1,14 @@
 import React from 'react';
-import {Container} from 'react-bootstrap';
-function App() {
-    return (
-        <Container fluid className="g-0">
-        </Container>
-    );
+import {BrowserRouter, Routes} from 'react-router-dom';
+import AppRoutes from './Routes';
+export function App() {
+    return <>
+        <BrowserRouter>
+            <Routes>
+                {AppRoutes()}
+            </Routes> 
+        </BrowserRouter>
+    </>;
 }
 
 export default App;
