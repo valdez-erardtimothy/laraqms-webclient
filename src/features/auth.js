@@ -3,8 +3,8 @@ import axios from 'axios';
 
 export const  attemptLogin = createAsyncThunk(
     "auth/login",
-    async function(formData){
-        let response = await axios.post('/api/login', formData);
+    async function({credentials}){
+        let response = await axios.post('/api/login', credentials);
 
         return response.data;
     });
