@@ -1,11 +1,15 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 
+/* customer reducers */
+import customerQueue from './features/customer-queue';
 
-/* teller reducers */
 import AuthReducer from './features/auth';
 
 export default configureStore({
     reducer: combineReducers({
         auth: AuthReducer,
+        customer: combineReducers({
+            queue: customerQueue
+        })
     })
 });
