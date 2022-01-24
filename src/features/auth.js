@@ -18,6 +18,15 @@ export const getAuthenticatedUser = createAsyncThunk(
     }
 );
 
+export const logout = createAsyncThunk(
+    'auth/logout',
+    async function()  {
+        let response = await axios.get('/api/logout');
+        
+        return response;
+    }
+);
+
 const authSlice = createSlice({
     name: "auth", 
     initialState: {
@@ -32,6 +41,11 @@ const authSlice = createSlice({
             })
             .addCase(getAuthenticatedUser.fulfilled, (state, action) => {
                 state.user = action.payload.user;
+                state.isAuthenticated = true;
+            })
+            .addCase(logout.fulfilled, (state)=> {
+                state.user = null; 
+                state.isAuthenticated = false;
             })
         ;
     }
