@@ -4,7 +4,7 @@ import {Route} from 'react-router-dom';
 import MainLayout from './Layout';
 import TellerLayout from './teller/Layout';
 /* main app page-imports */
-import Home from './pages/auth/Index';
+import Home from './pages/Index';
 import Login from './pages/auth/Login';
 
 /* teller page-imports */
