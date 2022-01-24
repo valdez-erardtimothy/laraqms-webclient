@@ -9,6 +9,15 @@ export const  attemptLogin = createAsyncThunk(
         return response.data;
     });
 
+export const getAuthenticatedUser = createAsyncThunk(
+    "auth/getAuthenticatedUser",
+    async function() {
+        let response = await axios.get('/api/get-authenticated');
+
+        return response.data;
+    }
+);
+
 const authSlice = createSlice({
     name: "auth", 
     initialState: {
@@ -20,7 +29,11 @@ const authSlice = createSlice({
             .addCase(attemptLogin.fulfilled, (state, action) => {
                 state.user = action.payload.user;
                 state.isAuthenticated = true;
-            });
+            })
+            .addCase(getAuthenticatedUser.fulfilled, (state, action) => {
+                state.user = action.payload.user;
+            })
+        ;
     }
     
 });
