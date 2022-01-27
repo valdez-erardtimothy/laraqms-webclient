@@ -8,6 +8,8 @@ import Home from './pages/Index';
 import Login from './pages/auth/Login';
 
 /* teller page-imports */
+import TellerHome from './teller/pages/Index';
+
 // import TellerLogin from './teller/pages/auth/Login';
 
 const Routes = () => {
@@ -19,6 +21,7 @@ const Routes = () => {
         </Route>
         {/* routes for tellers */}
         <Route path="teller" element={<TellerLayout/>}>
+            <Route index element={<TellerHome/>}/>
         </Route>
     </>;
 };

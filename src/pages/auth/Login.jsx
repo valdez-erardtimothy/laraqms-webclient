@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Container, Form, FloatingLabel } from 'react-bootstrap';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 /* action imports */
 import {attemptLogin} from '../../features/auth';
 
 export default function Login() {
-/* hooks */
+    /* hooks */
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    
+    /* redux state */
+    const {isAuthenticated} = useSelector(state=>state.auth);
+
+    /* effect hooks */
+    useEffect(()=> {
+        // redirect user if logged in or login successful
+        isAuthenticated && navigate('/teller');
+    }, [isAuthenticated]);
+
     /* handlers */
     // attempt customer login
     const loginHandler = (e) => {
@@ -15,6 +27,8 @@ export default function Login() {
         let credentials = new FormData(e.target);
         dispatch(attemptLogin({credentials}));
     };
+
+    
     
     return <>
         <Container>
