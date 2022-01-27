@@ -6,6 +6,8 @@ import MainNav from './components/NavigationBar';
 export default function Layout(){
     return <Container fluid className="g-0">
         <MainNav/>
-        <Outlet/>
+        <div className="mt-2">
+            <Outlet/>
+        </div>
     </Container>;
 }

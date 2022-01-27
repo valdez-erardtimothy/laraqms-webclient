@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
+import {Navbar, Nav, NavDropdown, Container} from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import {Link} from 'react-router-dom';
 
@@ -15,34 +15,37 @@ export default function NavigationBar() {
     
     /* render */
     return <Navbar bg="light">
-        <Navbar.Brand>LaraQMS</Navbar.Brand>
-        <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-                <Nav.Link as={Link} to="/">Home</Nav.Link>
-                <Nav.Link href="#link">Link</Nav.Link>
+        <Container fluid="md">
+            <Navbar.Brand>LaraQMS</Navbar.Brand>
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
+                    <Nav.Link as={Link} to="/">Home</Nav.Link>
+                    <Nav.Link href="#link">Link</Nav.Link>
                 
-                {!isAuthenticated ? (
-                    <Nav.Link as={Link} to="/login">Log in</Nav.Link>) : (
-                    <NavDropdown
-                        title={user?.name ?? "User!"}
-                        id="nav-authenticated-dropdown"
-                    >
-                        <NavDropdown.Item 
-                            as={Link}
-                            to="/teller"
+                    {!isAuthenticated ? (
+                        <Nav.Link as={Link} to="/login">Log in</Nav.Link>) : (
+                        <NavDropdown
+                            title={user?.name ?? "User!"}
+                            id="nav-authenticated-dropdown"
                         >
+                            <NavDropdown.Item 
+                                as={Link}
+                                to="/teller"
+                            >
                             Dashboard
-                        </NavDropdown.Item>
+                            </NavDropdown.Item>
                     
-                        <NavDropdown.Item 
-                            as="button"
-                            onClick={()=>{dispatch(logout());}}
-                        >
+                            <NavDropdown.Item 
+                                as="button"
+                                onClick={()=>{dispatch(logout());}}
+                            >
                             Log out
-                        </NavDropdown.Item>
-                    </NavDropdown>
-                )}
-            </Nav>
-        </Navbar.Collapse>
+                            </NavDropdown.Item>
+                        </NavDropdown>
+                    )}
+                </Nav>
+            </Navbar.Collapse>
+        </Container>
+       
     </Navbar>;
 }

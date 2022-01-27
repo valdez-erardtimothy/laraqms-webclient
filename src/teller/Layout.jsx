@@ -5,6 +5,8 @@ import NavigationBar from '../components/NavigationBar';
 export default function Layout(){
     return <Container fluid className="g-0">
         <NavigationBar/>
-        <Outlet/>
+        <div className="mt-2">
+            <Outlet/>
+        </div>
     </Container>;
 }
