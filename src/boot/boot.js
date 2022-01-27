@@ -5,3 +5,4 @@
 import './axios';
 import './get-csrf';
 import './getAuthenticated';
+import './getQueueData';
