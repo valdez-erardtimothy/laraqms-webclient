@@ -6,17 +6,15 @@ import Loading from './placeholders/Loading';
  * 
  * (not a true React HoC)
  * 
- * @param {React.Component} WrappedComponent 
- * the base component
- * @param {boolean} isLoading 
+ * @param {any} props
+ * @param {boolean} props.isLoading 
  * determines whether loading placeholder should be rendered
- * @param {React.Component} PlaceholderComponent 
+ * @param {React.Component} props.PlaceholderComponent 
  * the placeholder React component to be used
- * @param {boolean} preRender 
+ * @param {boolean} props.preRender 
  * allow rendering base component even while Loading 
  * (component will be hidden below placeholder)
- * @param  {...any} props 
- * props for the WrappedComponent
+ * @param {*} props.children
  * @returns 
  */
 export default function WithLoading({
