@@ -28,7 +28,6 @@ export default function Index() {
         dispatch(loadData());
     }, []);
 
-    console.debug(waitlist, !waitlist);
     /* render */
     return (
         <>
